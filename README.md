@@ -32,6 +32,14 @@ radar-fundamentalista-b3/
 
 Variáveis opcionais: `PORT` (padrão 8080), `HOST` (padrão 127.0.0.1; use 0.0.0.0 para acessar de outros aparelhos) e `WEB_DIR`.
 
+## Publicar no Vercel
+
+O Vercel não executa servidores Java. Para ele, a pasta `api/` traz o mesmo backend como funções Node.js (`api/acao/[ticker].js` e `api/status.js`), e o `vercel.json` aponta o site estático para a pasta `web`. O servidor Java continua valendo para uso local ou em hospedagens que aceitem Java.
+
+1. Importe o repositório no Vercel (Framework Preset: **Other**).
+2. Em Settings > Environment Variables, crie `BRAPI_TOKEN` com o seu token da brapi.dev.
+3. Faça o deploy (ou um novo deploy, se a variável foi criada depois).
+
 ## Rotas da API
 
 - `GET /api/status` informa se há token configurado.
