@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radar Fundamentalista B3</title>
+  <meta name="description" content="Digite o código de uma ação da B3, veja os indicadores fundamentalistas e receba um veredito de compra, venda ou neutro.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <h1>Radar Fundamentalista B3</h1>
+        <p class="sub">Digite o código da ação, confira os indicadores e veja se o conjunto aponta para compra, venda ou neutro.</p>
+      </div>
+      <span class="srv" id="srv">Verificando servidor…</span>
+    </header>
+
+    <form class="bar" id="form">
+      <label>Código na B3
+        <input type="text" id="ticker" value="BBAS3" maxlength="8" autocomplete="off" spellcheck="false">
+      </label>
+      <label>Tipo de empresa
+        <select id="setor">
+          <option value="banco">Banco / financeira</option>
+          <option value="geral">Não financeira</option>
+        </select>
+      </label>
+      <button type="submit" id="go">Analisar</button>
+    </form>
+    <p class="status" id="status" role="status"></p>
+
+    <details>
+      <summary>Colar indicadores copiados do Status Invest</summary>
+      <textarea id="paste" placeholder="Copie a página de indicadores do ativo no Status Invest e cole aqui. Campos sem valor ficam em branco."></textarea>
+      <button type="button" class="ghost" id="fill">Preencher campos</button>
+    </details>
+
+    <div class="main">
+      <aside class="verdict" aria-live="polite">
+        <div>
+          <div class="vlabel" id="vt">Resultado</div>
+          <div class="vword none" id="vword">–</div>
+        </div>
+        <div>
+          <div class="meter"><i class="a"></i><i class="b"></i><i class="c"></i><span class="pin" id="pin"></span></div>
+          <div class="scale"><span>venda</span><span>neutro</span><span>compra</span></div>
+        </div>
+        <div class="counts" id="counts"></div>
+        <div class="refs" id="refs"></div>
+        <p class="note" id="fonte"></p>
+        <p class="note">Triagem educacional por regras fixas de análise fundamentalista (Graham, Bazin e limites usuais de valuation, rentabilidade, endividamento e crescimento). Não é recomendação de investimento. Confirme os dados nas demonstrações da empresa antes de decidir.</p>
+      </aside>
+      <div id="groups"></div>
+    </div>
+  </div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
